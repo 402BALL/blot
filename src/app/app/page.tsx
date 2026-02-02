@@ -716,7 +716,7 @@ export default function AppPage() {
           {['bots', 'marketplace', 'terminal', 'leaderboard'].map((view) => (
             <button key={view} onClick={() => setActiveView(view as any)} style={{ padding: '6px 12px', fontSize: '13px', fontWeight: 500, background: activeView === view ? '#000' : '#fff', color: activeView === view ? '#fff' : '#000', border: '1px solid #000', cursor: 'pointer' }}>{view === 'bots' ? 'My Bots' : view.charAt(0).toUpperCase() + view.slice(1)}</button>
           ))}
-          {isLoggedIn ? <button onClick={() => { setIsLoggedIn(false); setWalletConnected(false); }} style={{ padding: '6px 12px', fontSize: '13px', border: '1px solid #e4e4e7', background: '#fff', cursor: 'pointer' }}>Log Out</button> : <button onClick={() => setShowAuthModal(true)} style={{ padding: '6px 12px', fontSize: '13px', background: '#dc2626', color: '#fff', border: 'none', cursor: 'pointer' }}>Sign In</button>}
+          {isLoggedIn || phantom.connected ? <button onClick={signOut} style={{ padding: '6px 12px', fontSize: '13px', border: '1px solid #e4e4e7', background: '#fff', cursor: 'pointer' }}>Log Out</button> : <button onClick={() => setShowAuthModal(true)} style={{ padding: '6px 12px', fontSize: '13px', background: '#dc2626', color: '#fff', border: 'none', cursor: 'pointer' }}>Sign In</button>}
         </div>
       </header>
 
