@@ -330,7 +330,6 @@ export default function AppPage() {
       provider: 'twitter',
       options: {
         redirectTo: `${window.location.origin}/app`,
-        scopes: 'tweet.read users.read',
       },
     });
     if (error) {
