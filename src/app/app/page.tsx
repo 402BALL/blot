@@ -228,20 +228,24 @@ export default function AppPage() {
           addActivity('Started all bots');
         }
       } else if (userInput.includes('analyze')) {
-        response = 'AI Analysis: This feature requires backend integration. Coming soon!';
+        response = '🔬 AI Analysis — Coming soon!\n\nThis feature will analyze tokens, detect rugs, and provide trading signals.';
       } else if (userInput.includes('buy') || userInput.includes('sell') || userInput.includes('swap')) {
         if (!phantom.connected) {
-          response = 'Please connect your wallet to execute trades.';
+          response = 'Connect your wallet first to enable trading.';
         } else {
-          response = 'Trading commands require backend integration. For now, create a bot to automate trades!';
+          response = '⚡ Direct Trading — Coming soon!\n\nFor now, create a bot to automate your trades.';
         }
+      } else if (userInput.includes('snipe') || userInput.includes('sniper')) {
+        response = '🎯 Sniping — Coming soon!\n\nCreate a Sniper Bot to automatically snipe new tokens.';
+      } else if (userInput.includes('price') || userInput.includes('chart')) {
+        response = '📊 Charts — Coming soon!\n\nPrice charts and analytics will be available soon.';
       } else if (userInput.includes('help')) {
-        response = 'Available commands:\n• Create [sniper/dca/copy/grid] bot\n• Show portfolio\n• Show bots\n• Stop all bots\n• Start all bots\n• Analyze [token]\n• Help';
+        response = '📖 Available commands:\n\n• Create [sniper/dca/copy/grid] bot\n• Show portfolio\n• Show bots\n• Stop all bots\n• Start all bots\n• Marketplace\n• Help\n\n🔜 Coming soon: analyze, buy, sell, snipe, charts';
       } else if (userInput.includes('marketplace')) {
         setActiveView('marketplace');
         response = 'Opening Marketplace...';
       } else {
-        response = `I understood "${input}". This command will be available when backend is connected. Try "help" for available commands.`;
+        response = `Command "${input}" coming soon.\n\nType "help" to see available commands.`;
       }
 
       setMessages(prev => [...prev, { role: 'bot', content: response }]);
